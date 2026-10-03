@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'LandUI Pro';
+  src: url('LandUIPro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   color-scheme: light dark;
   --blue: #0071e3;
@@ -20,8 +26,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'LandUI Pro', sans-serif;
   background: var(--bg);
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
