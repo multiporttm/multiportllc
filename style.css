@@ -605,6 +605,14 @@ body {
   background: linear-gradient(135deg, #1d1d1f, #55606e);
 }
 
+.icon-fontfiles {
+  background: linear-gradient(135deg, #ff2d55, #ff9f0a);
+}
+
+.icon-blooket {
+  background: linear-gradient(135deg, #30d158, #0a84ff);
+}
+
 .addon-badge {
   display: inline-block;
   font-size: 12px;
