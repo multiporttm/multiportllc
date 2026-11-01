@@ -7,3 +7,4 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://widget.trustpilot.com https://cdn.counter.dev; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.trustpilot.com https://cdn.counter.dev; connect-src 'self' https://cdn.counter.dev https://*.trustpilot.com; frame-src https://*.trustpilot.com; font-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'
