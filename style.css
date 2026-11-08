@@ -122,6 +122,10 @@ body {
   padding: 9px 4px;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Dropdown */
 .nav-dropdown {
   position: relative;
