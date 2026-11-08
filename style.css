@@ -432,6 +432,15 @@ body {
   color: var(--fg);
 }
 
+.section-intro {
+  max-width: 640px;
+  margin: -32px auto 48px;
+  color: var(--muted, #6e6e73);
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: center;
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
