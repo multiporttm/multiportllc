@@ -114,6 +114,14 @@ body {
   font-weight: 600;
 }
 
+.nav-link {
+  text-decoration: none;
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 4px;
+}
+
 /* Dropdown */
 .nav-dropdown {
   position: relative;
@@ -402,6 +410,10 @@ body {
   .nav-cta {
     display: none;
   }
+
+  .nav-link {
+    display: none;
+  }
 }
 
 /* Features */
@@ -611,6 +623,14 @@ body {
 
 .icon-blooket {
   background: linear-gradient(135deg, #30d158, #0a84ff);
+}
+
+.icon-coaster {
+  background: linear-gradient(135deg, #ff453a, #ff9f0a);
+}
+
+.icon-scraper {
+  background: linear-gradient(135deg, #0a84ff, #5e5ce6);
 }
 
 .addon-badge {
