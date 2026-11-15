@@ -649,8 +649,10 @@ body {
 }
 
 .showcase-preview {
+  position: relative;
   display: flex;
   justify-content: center;
+  padding: 24px 0 24px 56px;
 }
 
 .app-card {
@@ -660,6 +662,26 @@ body {
   width: 100%;
   max-width: 320px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.app-card-front {
+  position: relative;
+  z-index: 2;
+}
+
+.app-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transform: rotate(-6deg);
+  opacity: 0.9;
+}
+
+.app-card-game {
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 8px;
 }
 
 .app-card-header {
@@ -676,6 +698,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  object-fit: cover;
   font-size: 22px;
   flex-shrink: 0;
 }
