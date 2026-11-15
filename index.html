@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
 <link rel="icon" href="favicon.ico">
 <link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="style.css?v=16">
 <script src="https://cdn.counter.dev/script.js" data-id="24591d8d-bdbf-4574-877c-3fc91c262d01" data-utcoffset="-5"></script>
 </head>
 <body>
@@ -102,17 +102,26 @@
         <a class="btn-link" href="https://games.multiportllc.com" target="_blank" rel="noopener noreferrer">Play Multiport Games &rarr;</a>
       </div>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hero-card hero-card-1">
-        <img class="hero-card-icon" src="/games-icon.svg" alt="">
-        <span class="hero-card-label">MultiportGames</span>
-      </div>
-      <div class="hero-card hero-card-2">
-        <span class="hero-card-icon icon-counter">🔢</span>
-        <span class="hero-card-label">Multiport Counter App</span>
+    <div class="hero-panel" aria-hidden="true">
+      <div class="hero-visual">
+        <div class="hero-card hero-card-1">
+          <img class="hero-card-icon" src="/games-icon.svg" alt="">
+          <span class="hero-card-label">MultiportGames</span>
+        </div>
+        <div class="hero-card hero-card-2">
+          <span class="hero-card-icon icon-counter">🔢</span>
+          <span class="hero-card-label">Multiport Counter App</span>
+        </div>
       </div>
     </div>
   </header>
+
+  <section class="trust-strip" aria-label="Multiport at a glance">
+    <div class="trust-item"><strong>6+</strong><span>products &amp; tools</span></div>
+    <div class="trust-item"><strong>1</strong><span>person building them</span></div>
+    <div class="trust-item"><strong>0</strong><span>ads or trackers</span></div>
+    <div class="trust-item"><strong>0</strong><span>required accounts</span></div>
+  </section>
 
   <main>
     <section class="features" id="why">
@@ -122,24 +131,30 @@
       built to solve a specific problem instead of trying to do everything at once. There's no company
       behind it, no outside investors, and no hidden data-collection business model — just products made
       because they were worth making.</p>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Built to do one thing well</h3>
-          <p>Every Multiport product solves one problem clearly, instead of trying to be everything at once.
-          That keeps each app simple to use and quick to load.</p>
+      <div class="feature-rows">
+        <div class="feature-row">
+          <div class="feature-visual"><span>🎯</span></div>
+          <div class="feature-text">
+            <h3>Built to do one thing well</h3>
+            <p>Every Multiport product solves one problem clearly, instead of trying to be everything at once.
+            That keeps each app simple to use and quick to load.</p>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Fast, free, no clutter</h3>
-          <p>Free to use, with no paywalls — accounts are optional, never required. You won't find ads,
-          pop-ups, or dark patterns pushing you toward a purchase.</p>
+        <div class="feature-row">
+          <div class="feature-visual"><span>⚡</span></div>
+          <div class="feature-text">
+            <h3>Fast, free, no clutter</h3>
+            <p>Free to use, with no paywalls — accounts are optional, never required. You won't find ads,
+            pop-ups, or dark patterns pushing you toward a purchase.</p>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌱</div>
-          <h3>Independently built</h3>
-          <p>Multiport is a one-person, independent effort — I build and maintain every product directly,
-          and I read every support email myself.</p>
+        <div class="feature-row">
+          <div class="feature-visual"><span>🌱</span></div>
+          <div class="feature-text">
+            <h3>Independently built</h3>
+            <p>Multiport is a one-person, independent effort — I build and maintain every product directly,
+            and I read every support email myself.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -266,12 +281,38 @@
       </div>
     </section>
 
+    <section class="faq" id="faq">
+      <span class="eyebrow">FAQ</span>
+      <h2>Good to know</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Do I need to make an account?</summary>
+          <p>No — accounts are optional across every Multiport product, and never required just to try one
+          out.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is everything actually free?</summary>
+          <p>Yes. Every Multiport product is free to use, with no paywalls or hidden subscriptions.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Who builds Multiport?</summary>
+          <p>One person. There's no team, no outside investors, and no company behind it — just
+          independently built software.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does Multiport sell my data?</summary>
+          <p>No. Multiport doesn't run ads or sell personal information. See the
+          <a href="/privacy.html">Privacy Policy</a> for details.</p>
+        </details>
+      </div>
+    </section>
+
     <section class="cta-band">
       <h2>Ready to try Multiport?</h2>
       <p>Pick a product and jump straight in — no sign-up required.</p>
       <div class="hero-actions cta-band-actions">
         <a class="btn btn-primary" href="https://games.multiportllc.com" target="_blank" rel="noopener noreferrer">Play MultiportGames</a>
-        <a class="btn-link" href="https://counterapp.multiportllc.com" target="_blank" rel="noopener noreferrer">Try Counter &rarr;</a>
+        <a class="btn-link-light" href="https://counterapp.multiportllc.com" target="_blank" rel="noopener noreferrer">Try Counter &rarr;</a>
       </div>
     </section>
   </main>
