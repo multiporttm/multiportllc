@@ -86,8 +86,8 @@ body {
   text-decoration: none;
   color: #fff;
   background: linear-gradient(135deg, var(--blue), var(--green));
-  padding: 9px 20px;
-  border-radius: 980px;
+  padding: 9px 18px;
+  border-radius: 10px;
   font-size: 14px;
   font-weight: 600;
 }
@@ -114,20 +114,19 @@ body {
   font-size: 14px;
   font-weight: 600;
   color: var(--fg);
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 980px;
-  padding: 9px 18px;
+  background: none;
+  border: none;
+  padding: 9px 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: box-shadow 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .dropdown-toggle:hover,
 .dropdown-toggle:focus-visible {
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+  color: var(--blue);
 }
 
 .chevron {
@@ -249,7 +248,7 @@ body {
   font-size: 15px;
   font-weight: 600;
   padding: 14px 30px;
-  border-radius: 980px;
+  border-radius: 12px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
