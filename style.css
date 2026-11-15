@@ -762,8 +762,16 @@ body {
   line-height: 1.5;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: var(--muted);
   margin: 0;
+}
+
+.manifesto p .word {
+  color: rgba(15, 23, 42, 0.25);
+  transition: color 0.15s ease;
+}
+
+.manifesto p .word.active {
+  color: var(--fg);
 }
 
 /* FAQ */
