@@ -4,6 +4,14 @@
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Pause the background video for users who asked for reduced motion
+if (reducedMotion) {
+  document.querySelectorAll('.hero-showcase-video').forEach((video) => {
+    video.pause();
+    video.removeAttribute('autoplay');
+  });
+}
+
 // Scroll-reveal fade/slide-up for cards and rows
 if (!reducedMotion) {
   const revealEls = document.querySelectorAll(
