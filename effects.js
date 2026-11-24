@@ -6,7 +6,7 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 
 // Pause the background video for users who asked for reduced motion
 if (reducedMotion) {
-  document.querySelectorAll('.hero-showcase-video').forEach((video) => {
+  document.querySelectorAll('.zoom-video').forEach((video) => {
     video.pause();
     video.removeAttribute('autoplay');
   });

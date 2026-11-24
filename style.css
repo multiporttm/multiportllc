@@ -321,13 +321,29 @@ body {
   text-decoration: underline;
 }
 
-/* Hero visual */
-.hero-showcase {
+/* Scroll-pinned zoom */
+.zoom-stage {
   position: relative;
+  height: 250vh;
+}
+
+.zoom-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   width: 100%;
-  max-width: 420px;
-  aspect-ratio: 4 / 3;
-  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.zoom-box {
+  position: relative;
+  width: 420px;
+  height: 315px;
+  max-width: 90vw;
   border-radius: 40px;
   overflow: hidden;
   background: linear-gradient(160deg, rgba(0, 113, 227, 0.12), rgba(0, 200, 150, 0.12));
@@ -337,7 +353,7 @@ body {
   box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
 }
 
-.hero-showcase-video {
+.zoom-video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -347,9 +363,15 @@ body {
   pointer-events: none;
 }
 
-.hero-showcase-icon {
+.zoom-box-content {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-showcase-icon {
   font-size: clamp(72px, 14vw, 120px);
   filter: drop-shadow(0 20px 30px rgba(15, 23, 42, 0.15));
 }
@@ -357,7 +379,7 @@ body {
 .hero-showcase-badge {
   position: absolute;
   z-index: 1;
-  bottom: -18px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
@@ -372,8 +394,21 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-showcase-video {
-    display: none;
+  .zoom-stage {
+    height: auto;
+  }
+
+  .zoom-sticky {
+    position: static;
+    height: auto;
+    padding: 60px 0;
+  }
+
+  .zoom-box {
+    width: 420px !important;
+    height: 315px !important;
+    max-width: 90vw;
+    border-radius: 40px !important;
   }
 }
 
@@ -967,6 +1002,21 @@ body {
 
 .legal a {
   color: var(--blue);
+}
+
+.license-text {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  margin: 0 0 20px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--fg);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
 }
 
 /* Products */
