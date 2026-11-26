@@ -1185,14 +1185,15 @@ body {
   --rx: 0deg;
   --ry: 0deg;
   --ty: 0px;
+  --reveal-scale: 1;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 22px;
   padding: 32px;
   text-decoration: none;
   color: var(--fg);
-  transition: transform 0.15s ease, box-shadow 0.25s ease;
-  transform: perspective(800px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--ty));
+  transition: transform 0.3s ease, box-shadow 0.25s ease;
+  transform: perspective(800px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--ty)) scale(var(--reveal-scale));
   display: flex;
   align-items: flex-start;
   gap: 20px;
@@ -1394,13 +1395,17 @@ footer {
   transform: translateY(0) scale(1);
 }
 
-/* product-card and mosaic-panel each already animate their own transform/transition
-   (tilt-on-hover, flex-grow-on-hover) — restate those here at higher specificity so
-   the generic .reveal rules above don't silently clobber them. */
-.product-card.reveal,
+/* product-card, mosaic-panel, and the screenshot stack each already animate their own
+   transform/transition (tilt-on-hover, flex-grow-on-hover, fanned rotation). Rather than
+   letting the generic .reveal rules replace their transform/transition outright (which
+   silently erases the other effect), they drive a shared --reveal-scale custom property
+   that each element's own transform expression already multiplies in. */
+.product-card.reveal {
+  --reveal-scale: 0.82;
+}
+
 .product-card.reveal-visible {
-  transform: perspective(800px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--ty));
-  transition: transform 0.15s ease, box-shadow 0.25s ease, opacity 0.6s ease;
+  --reveal-scale: 1;
 }
 
 .mosaic-panel.reveal,
@@ -1409,14 +1414,23 @@ footer {
 }
 
 /* screenshot-middle/back keep their own fanned-out rotation and layered opacity,
-   which the generic .reveal-visible rule would otherwise flatten. */
+   which the generic .reveal-visible rule would otherwise flatten — they just fade in
+   at their fixed fan position instead of also scaling. */
+.screenshot-middle.reveal,
 .screenshot-middle.reveal-visible {
   transform: translateX(-50%) translate(60px, 14px) rotate(8deg);
+}
+
+.screenshot-middle.reveal-visible {
   opacity: 0.92;
 }
 
+.screenshot-back.reveal,
 .screenshot-back.reveal-visible {
   transform: translateX(-50%) translate(-60px, 14px) rotate(-8deg);
+}
+
+.screenshot-back.reveal-visible {
   opacity: 0.85;
 }
 

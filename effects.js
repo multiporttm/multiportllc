@@ -27,8 +27,18 @@ if (!reducedMotion) {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          revealObserver.unobserve(entry.target);
+          const el = entry.target;
+          el.classList.add('reveal-visible');
+          revealObserver.unobserve(el);
+          // the stagger delay is only meant for the entrance transition — clear it
+          // afterward so it doesn't also delay later interactions (hover tilt, etc.)
+          el.addEventListener(
+            'transitionend',
+            () => {
+              el.style.transitionDelay = '';
+            },
+            { once: true }
+          );
         }
       });
     },
