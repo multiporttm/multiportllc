@@ -1260,6 +1260,10 @@ body {
   background: linear-gradient(135deg, #bf5af2, #5e5ce6);
 }
 
+.icon-portai {
+  background: linear-gradient(135deg, #ff375f, #0a84ff);
+}
+
 .addon-badge {
   display: inline-block;
   font-size: 12px;
