@@ -1428,7 +1428,7 @@ footer {
 }
 
 .screenshot-middle.reveal {
-  --reveal-scale: 0.82;
+  --reveal-scale: 0.55;
 }
 
 .screenshot-middle.reveal-visible {
@@ -1442,12 +1442,18 @@ footer {
 }
 
 .screenshot-back.reveal {
-  --reveal-scale: 0.82;
+  --reveal-scale: 0.55;
 }
 
 .screenshot-back.reveal-visible {
   --reveal-scale: 1;
   opacity: 0.85;
+}
+
+/* screenshot-front has no fan offset of its own, so the generic .reveal rule already
+   drives its transform directly — just deepen the scale to match the rest of the stack. */
+.screenshot-front.reveal {
+  transform: translateY(24px) scale(0.55);
 }
 
 @media (prefers-reduced-motion: reduce) {
