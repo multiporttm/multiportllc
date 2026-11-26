@@ -763,7 +763,8 @@ body {
   left: 50%;
   z-index: 2;
   opacity: 0.92;
-  transform: translateX(-50%) translate(60px, 14px) rotate(8deg);
+  --reveal-scale: 1;
+  transform: translateX(-50%) translate(60px, 14px) rotate(8deg) scale(var(--reveal-scale));
 }
 
 .screenshot-back {
@@ -772,7 +773,8 @@ body {
   left: 50%;
   z-index: 1;
   opacity: 0.85;
-  transform: translateX(-50%) translate(-60px, 14px) rotate(-8deg);
+  --reveal-scale: 1;
+  transform: translateX(-50%) translate(-60px, 14px) rotate(-8deg) scale(var(--reveal-scale));
 }
 
 @media (max-width: 820px) {
@@ -1417,24 +1419,34 @@ footer {
   transition: flex-grow 0.35s ease, opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* screenshot-middle/back keep their own fanned-out rotation and layered opacity,
-   which the generic .reveal-visible rule would otherwise flatten — they just fade in
-   at their fixed fan position instead of also scaling. */
+/* screenshot-middle/back keep their own fanned-out rotation and layered opacity —
+   the same --reveal-scale custom property approach as .product-card lets them zoom
+   in at their fixed fan position instead of the generic rule flattening it. */
 .screenshot-middle.reveal,
 .screenshot-middle.reveal-visible {
-  transform: translateX(-50%) translate(60px, 14px) rotate(8deg);
+  transform: translateX(-50%) translate(60px, 14px) rotate(8deg) scale(var(--reveal-scale));
+}
+
+.screenshot-middle.reveal {
+  --reveal-scale: 0.82;
 }
 
 .screenshot-middle.reveal-visible {
+  --reveal-scale: 1;
   opacity: 0.92;
 }
 
 .screenshot-back.reveal,
 .screenshot-back.reveal-visible {
-  transform: translateX(-50%) translate(-60px, 14px) rotate(-8deg);
+  transform: translateX(-50%) translate(-60px, 14px) rotate(-8deg) scale(var(--reveal-scale));
+}
+
+.screenshot-back.reveal {
+  --reveal-scale: 0.82;
 }
 
 .screenshot-back.reveal-visible {
+  --reveal-scale: 1;
   opacity: 0.85;
 }
 

@@ -16,7 +16,7 @@ if (reducedMotion) {
 if (!reducedMotion) {
   const revealEls = document.querySelectorAll(
     '.feature-row, .product-card, .faq-item, .showcase-item, .mosaic-tip, .mosaic-panel, ' +
-    '.trust-item, .screenshot-card'
+    '.trust-item, .screenshot-card, .spotlight-slide, .cta-band'
   );
   revealEls.forEach((el, i) => {
     el.classList.add('reveal');
