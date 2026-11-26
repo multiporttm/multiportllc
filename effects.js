@@ -15,7 +15,8 @@ if (reducedMotion) {
 // Scroll-reveal fade/slide-up for cards and rows
 if (!reducedMotion) {
   const revealEls = document.querySelectorAll(
-    '.feature-row, .product-card, .faq-item, .showcase-item, .mosaic-tip'
+    '.feature-row, .product-card, .faq-item, .showcase-item, .mosaic-tip, .mosaic-panel, ' +
+    '.trust-item, .screenshot-card'
   );
   revealEls.forEach((el, i) => {
     el.classList.add('reveal');

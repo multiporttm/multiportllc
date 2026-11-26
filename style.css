@@ -1019,6 +1019,146 @@ body {
   overflow-x: auto;
 }
 
+/* Product Spotlight */
+.spotlight {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.spotlight h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 6px 0 40px;
+  color: var(--fg);
+}
+
+.spotlight-slider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.spotlight-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--fg);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.spotlight-arrow:hover {
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
+}
+
+.spotlight-viewport {
+  flex: 1;
+  overflow: hidden;
+}
+
+.spotlight-track {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+
+.spotlight-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 8px 12px;
+}
+
+.spotlight-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.spotlight-icon-emoji {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+}
+
+.spotlight-slide h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+  color: var(--fg);
+}
+
+.spotlight-slide p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 16px;
+}
+
+.spotlight-link {
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.spotlight-link:hover {
+  text-decoration: underline;
+}
+
+.spotlight-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.spotlight-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.spotlight-dot.is-active {
+  background: var(--blue);
+  transform: scale(1.3);
+}
+
+@media (max-width: 640px) {
+  .spotlight-slider {
+    gap: 8px;
+  }
+
+  .spotlight-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+  }
+}
+
 /* Products */
 .products {
   max-width: 1000px;
@@ -1245,13 +1385,39 @@ footer {
 /* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(24px) scale(0.82);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .reveal-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+}
+
+/* product-card and mosaic-panel each already animate their own transform/transition
+   (tilt-on-hover, flex-grow-on-hover) — restate those here at higher specificity so
+   the generic .reveal rules above don't silently clobber them. */
+.product-card.reveal,
+.product-card.reveal-visible {
+  transform: perspective(800px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--ty));
+  transition: transform 0.15s ease, box-shadow 0.25s ease, opacity 0.6s ease;
+}
+
+.mosaic-panel.reveal,
+.mosaic-panel.reveal-visible {
+  transition: flex-grow 0.35s ease, opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* screenshot-middle/back keep their own fanned-out rotation and layered opacity,
+   which the generic .reveal-visible rule would otherwise flatten. */
+.screenshot-middle.reveal-visible {
+  transform: translateX(-50%) translate(60px, 14px) rotate(8deg);
+  opacity: 0.92;
+}
+
+.screenshot-back.reveal-visible {
+  transform: translateX(-50%) translate(-60px, 14px) rotate(-8deg);
+  opacity: 0.85;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1261,11 +1427,13 @@ footer {
     transition: none;
   }
 
-  .cta-band {
-    animation: none;
+  .product-card.reveal,
+  .product-card.reveal-visible {
+    transform: none;
+    transition: box-shadow 0.25s ease;
   }
 
-  .product-card {
-    transition: box-shadow 0.25s ease;
+  .cta-band {
+    animation: none;
   }
 }
